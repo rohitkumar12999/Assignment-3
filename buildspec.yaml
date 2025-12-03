@@ -18,13 +18,14 @@ phases:
     commands:
       - echo "Pushing the Docker image to ECR..."
       - docker push 255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest
-      - echo "Creating imagedefinitions.json..."
-      - printf '[{"name":"kumar-cluster","imageUri":"255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest"}]' > imagedefinitions.json
-      - echo "imagedefinitions.json created successfully."
+      # - echo "Creating imagedefinitions.json..."
+      # - printf '[{"name":"kumar-cluster","imageUri":"255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest"}]' > imagedefinitions.json
+      # - echo "imagedefinitions.json created successfully."
       - echo "Build completed on $(date)"
       
 artifacts:
   files:
-    - imagedefinitions.json
+    - '**/*'
+
 
 
