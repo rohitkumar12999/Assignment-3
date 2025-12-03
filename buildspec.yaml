@@ -12,14 +12,14 @@ phases:
   build:
     commands:
       - echo "Building the Docker image..."
-      - docker build -t singh .
-      - docker tag singh:latest 255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh:latest
+      - docker build -t singh-app .
+      - docker tag singh-app:latest 255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest
   post_build:
     commands:
       - echo "Pushing the Docker image to ECR..."
-      - docker push 255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh:latest
+      - docker push 255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest
       - echo "Creating imagedefinitions.json..."
-      - printf '[{"name":"Saiyed-container","imageUri":"255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh:latest"}]' > imagedefinitions.json
+      - printf '[{"name":"Singh-container","imageUri":"255845675097.dkr.ecr.ca-central-1.amazonaws.com/singh-app:latest"}]' > imagedefinitions.json
       - echo "imagedefinitions.json created successfully."
       - echo "Build completed on $(date)"
       
